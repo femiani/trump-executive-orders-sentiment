@@ -41,8 +41,7 @@ Advanced Analyses
 1. Executive Order Impact:  
    Posts within a 3-day window before and after each executive order were compared. The analysis calculates:
    - Average sentiment before (pre_sentiment) and after (post_sentiment) each order  
-   - The percentage change in sentiment
-   - 
+    
 2. Keyword Trends:
    Boolean indicators track the presence of specific keywords (e.g., "doge department", "Elon Musk") in post titles. These indicators are then analyzed across sentiment bins to reveal trends.
 
