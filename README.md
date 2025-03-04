@@ -102,7 +102,7 @@ The outputs (e.g., sentiment_analysis_results.xlsx and PNG files) will be in the
 
 Interpretation Guide
 
-- Understanding the Visuals:
+Understanding the Visuals:
 Sentiment Scores:
 - Positive (>0.05): Supportive discussions
 - Neutral (-0.05 to 0.05): Fact-based comments
