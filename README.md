@@ -48,7 +48,8 @@ Advanced Analyses
 3. Engagement Metrics:  
    Engagement is defined as the product of the post’s upvote ratio and its number of comments. The analysis explores the correlation between overall sentiment and engagement.
 
-Visualizations
+Visualizations:
+
 Visualizations were created in Python using Matplotlib and Seaborn. Key charts include:
 - Executive Order Impact Chart:  
   - A bar chart comparing pre- and post-executive order sentiment.
@@ -76,6 +77,7 @@ Visualizations were created in Python using Matplotlib and Seaborn. Key charts i
   - Saved as 'election_sentiment_timeseries'
 
 🗂️ File Structure:
+
 trump project/
 ├── data/                   # Raw and cleaned datasets
 ├── analysis/               # data processing and analysis
