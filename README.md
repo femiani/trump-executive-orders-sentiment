@@ -100,6 +100,23 @@ python visualize.py --format png --dpi 300
 - Review the Results:
 The outputs (e.g., sentiment_analysis_results.xlsx and PNG files) will be in the data/ and visuals/ folders, respectively.
 
+Interpretation Guide
+
+- Understanding the Visuals:
+Sentiment Scores:
+- Positive (>0.05): Supportive discussions
+- Neutral (-0.05 to 0.05): Fact-based comments
+- Negative (<-0.05): Critical perspectives
+
+Engagement Formula
+- Engagement = (Upvotes / Total Votes) × Number of Comments
+Measures both popularity and discussion intensity
+
+Statistical Significance:
+
+- Used Welch's t-test (p < 0.05) for pre/post comparisons
+- 95% confidence intervals shown in bar chart error bars
+
 💡 Conclusion and Future Work:
 
 This project reveals significant public sentiment shifts around key executive orders and highlights the interplay between sentiment, keyword trends, and engagement. Future work may include:
