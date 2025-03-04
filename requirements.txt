@@ -1,0 +1,11 @@
+Below is a list of all the Python dependencies used in this project:
+
+pandas – for data manipulation and analysis
+numpy – for numerical operations
+nltk – for natural language processing (including VADER for sentiment analysis)
+Downloads required: vader_lexicon, stopwords, wordnet, omw-1.4
+contractions – to expand contractions in text during cleaning
+praw – for scraping Reddit data
+matplotlib – for creating plots and visualizations
+seaborn – for advanced statistical visualizations
+openpyxl – for writing Excel files (used with Pandas ExcelWriter)
