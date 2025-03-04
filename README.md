@@ -75,7 +75,7 @@ Visualizations were created in Python using Matplotlib and Seaborn. Key charts i
   - Tracks daily sentiment trends to show how public opinion evolves over time.
   - Saved as 'election_sentiment_timeseries'
 
-🗂️ File Structure
+🗂️ File Structure:
 trump project/
 ├── data/                   # Raw and cleaned datasets
 ├── analysis/               # data processing and analysis
@@ -84,7 +84,7 @@ trump project/
 ├── requirements.txt        # Python dependencies
 └── README.md               # Project documentation
 
-▶️ Reproduction Guide
+▶️ Reproduction Guide:
 - Install Dependencies:
 pip install -r requirements.txt
 
@@ -92,14 +92,14 @@ pip install -r requirements.txt
 Execute the main analysis script:
 python main.py --scrape --clean --analyze
 
-- Generate Visualizations:
-Generate charts by running:
+- Generate Visualizations by running:
 python visualize.py --format png --dpi 300
 
 - Review the Results:
 The outputs (e.g., sentiment_analysis_results.xlsx and PNG files) will be in the data/ and visuals/ folders, respectively.
 
-💡 Conclusion and Future Work
+💡 Conclusion and Future Work:
+
 This project reveals significant public sentiment shifts around key executive orders and highlights the interplay between sentiment, keyword trends, and engagement. Future work may include:
 - Expanding data sources to include Twitter or other platforms.
 - Implementing advanced machine learning techniques for sentiment classification.
