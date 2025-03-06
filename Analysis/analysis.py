@@ -30,6 +30,7 @@ def get_sentiment_scores(text):
         'negative': scores['neg'],
         'neutral': scores['neu']
     })
+    
 
 # Define the text columns to analyze sentiment from
 text_columns = ['clean_post_title', 'clean_comment_body']

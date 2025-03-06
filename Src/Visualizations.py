@@ -2,6 +2,12 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 from matplotlib.dates import DateFormatter
+from nltk.sentiment.vader import SentimentIntensityAnalyzer
+
+sia = SentimentIntensityAnalyzer()
+
+# Load Cleaned Election Posts Data
+df_election = pd.read_csv("election_posts_clean.csv")
 
 plt.style.use('ggplot')
 sns.set_palette("husl")
@@ -32,6 +38,19 @@ def plot_executive_impact(impact_df):
     plt.tight_layout()
     plt.savefig('executive_impact.png')
     plt.close()
+
+# Calculate Overall Sentiment 
+def get_sentiment(text):
+    if not isinstance(text, str):
+        text = ""
+    return sia.polarity_scores(text)['compound']
+
+# If overall_sentiment is not present, calculate it:
+if 'overall_sentiment' not in df_election.columns:
+    df_election['sentiment_title'] = df_election['clean_post_title'].apply(get_sentiment)
+    df_election['sentiment_comment'] = df_election['clean_comment_body'].apply(get_sentiment)
+    # Compute overall sentiment as the average of available sentiment scores
+    df_election['overall_sentiment'] = df_election[['sentiment_title', 'sentiment_comment']].mean(axis=1)
 
 def plot_daily_sentiment(daily_df, impact_df):
     """Time series plot with executive order markers"""
@@ -92,6 +111,30 @@ def plot_keyword_frequency(combined_df):
     plt.tight_layout()
     plt.savefig('keyword_heatmap.png')
     plt.close()
+
+    # Histogram of Overall Sentiment
+plt.figure(figsize=(10,6))
+sns.histplot(df_election['overall_sentiment'], bins=30, kde=True)
+plt.title("Distribution of Overall Sentiment in Election Posts")
+plt.xlabel("Overall Sentiment (Compound Score)")
+plt.ylabel("Frequency")
+plt.tight_layout()
+plt.savefig("election_sentiment_histogram.png", dpi=300, bbox_inches="tight")
+plt.show()
+
+# Daily Average Sentiment Time Series
+daily_sentiment = df_election.set_index('post_datetime').resample('D')['overall_sentiment'].mean().reset_index()
+
+plt.figure(figsize=(12,6))
+plt.plot(daily_sentiment['post_datetime'], daily_sentiment['overall_sentiment'],
+         marker='o', linestyle='-', linewidth=1)
+plt.title("Daily Average Sentiment in Election Posts")
+plt.xlabel("Date")
+plt.ylabel("Average Overall Sentiment")
+plt.xticks(rotation=45)
+plt.tight_layout()
+plt.savefig("election_sentiment_timeseries.png", dpi=300, bbox_inches="tight")
+plt.show()
 
 def main():
     # Load data from analysis output
